@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :products, through: :bookings, dependent: :destroy
   has_many :bookings, dependent: :destroy
+
+  validates :email, :password, :username, :first_name, :last_name, :phone_number, :address, presence: true
+  validates :email, :username, uniqueness: true
+  validates :username, length: { in: 6..30 }
 end
