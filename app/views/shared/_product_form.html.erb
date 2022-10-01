@@ -1,0 +1,12 @@
+<%= simple_form_for @product do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :price %>
+  <%= f.association :category, collection: Category.all, prompt: "Elegí tu categoría" %>
+  <%= f.input :color %>
+  <%= f.input :size %>
+  <%= f.input :brand %>
+  <%= f.input :gender, collection: %w[mujer hombre niño niña sin\ genero], prompt: "Elegí género" %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.button :submit %>
+<% end %>

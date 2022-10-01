@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+      <% @products.each do |product| %>
+        <div class="col-4 col-sm-4 col-lg-4">
+              <div class="card m-3">
+                <% product.photos.each do |photo| %>
+                  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+                <% end %>
+                <div class="card-body">
+                  <h5 class="card-title"><%= product.title %></h5>
+                  <p class="card-text"><%= product.description %></p>
+                  <p class="card-text"><%= product.price %></p>
+                  <p class="card-text"><%= "Color: #{product.color if product.color?}" %></p>
+                  <p class="card-text"><%= "Marca: #{product.brand.capitalize if product.brand?}" %></p>
+                  <p class="card-text"><%= "Talle: #{product.size if product.size?}" %></p>
+                  <p class="card-text"><%= "Género: #{product.gender.capitalize if product.gender?}" %></p>
+                  <%= link_to "info", product_path(product), class:"btn btn-primary" %></a>
+                  <%= link_to "editar", edit_product_path(product), class:"btn btn-primary" %></a>
+                  <%= link_to "eliminar", product_path(product), class:"btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Seguro?"} %></a>
+                </div>
+              </div>
+        </div>
+      <% end %>
+  </div>
+</div>

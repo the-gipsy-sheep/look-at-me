@@ -12,10 +12,13 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", root_path, class: "nav-link" %>
+            <%= link_to "Productos", products_path, class: "nav-link" %>
           </li>
           <li class="nav-item active">
-            <%= link_to "Galeria", products_path, class: "nav-link" %>
+            <%= link_to "Nueva Publicación", new_product_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag current_user.avatar_url? ? current_user.avatar_url : "https://kitt.lewagon.com/placeholder/users/random"  , class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
