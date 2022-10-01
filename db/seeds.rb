@@ -10,11 +10,12 @@ calzado = Category.create(description: "calzado")
 remeras = Category.create(description: "remeras")
 pantalones = Category.create(description: "pantalones")
 trajes = Category.create(description: "trajes")
-# vestidos = Category.create(description: "vestidos")
-# abrigos = Category.create(description: "abrigos")
-# camisas = Category.create(description: "camisas")
-# accesorios = Category.create(description: "accesorios")
-# deportiva = Category.create(description: "deportiva")
+vestidos = Category.create(description: "vestidos")
+abrigos = Category.create(description: "abrigos")
+camisas = Category.create(description: "camisas")
+accesorios = Category.create(description: "accesorios")
+deportiva = Category.create(description: "deportiva")
+carteras = Category.create(description: "carteras")
 
 user1 = User.create(
   email: "gonchi@gmail.com",
