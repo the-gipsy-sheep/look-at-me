@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :products, through: :bookings, dependent: :destroy
   has_many :bookings, dependent: :destroy, through: :products
 
-  validates :email, :password, :username, :first_name, :last_name, :phone_number, :address, presence: true
-  validates :email, :username, uniqueness: true
+  validates :username, :first_name, :last_name, :phone_number, :address, presence: true
+  validates :username, uniqueness: true
   validates :username, length: { in: 6..30 }
 end
