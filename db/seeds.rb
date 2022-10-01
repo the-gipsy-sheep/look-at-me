@@ -95,15 +95,3 @@ book1 = Booking.create(
   product_id: prod1.id,
   user_id: user2.id
 )
-
-
-user3 = User.create(
-  email: "jchad@gmail.com",
-  username: "jchad91",
-  password: "123456",
-  first_name: "Julian",
-  last_name: "Chadwick",
-  phone_number: "+5411 1234 5678",
-  address: "calle falsa 1234",
-  avatar_url: "https://kitt.lewagon.com/placeholder/users/noster91"
-)
