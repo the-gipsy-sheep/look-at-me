@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "logos/logo_square.png" %>
     <% end %>
 
@@ -17,13 +17,16 @@
           <li class="nav-item active">
             <%= link_to "Nueva Publicación", new_product_path, class: "nav-link" %>
           </li>
+          <li class="nav-item active">
+            <%= link_to "Home", root_path, class: "nav-link" %>
+          </li>
           <li class="nav-item dropdown">
             <%= image_tag current_user.avatar_url? ? current_user.avatar_url : "https://kitt.lewagon.com/placeholder/users/random"  , class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Bookings", "#", class: "dropdown-item" %>
-              <%= link_to "My Products", "#", class: "dropdown-item" %>
-              <%= link_to "My Sales", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+              <%= link_to "Reservas", "#", class: "dropdown-item" %> <!-- Pendiente subir el path cuando este el controller de booking-->
+              <%= link_to "Mis Productos", products_path, class: "dropdown-item" %>
+              <%= link_to "Mis Ventas", "#", class: "dropdown-item" %> <!-- Pendiente subir el path cuando este el controller de booking-->
+              <%= link_to "Desloguearse", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>
