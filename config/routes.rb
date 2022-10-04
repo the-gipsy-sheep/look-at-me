@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :products
+  resources :products do
+    resources :bookings
+  end
 
   root to: "pages#home"
-
-  # resources :products
-
 end
