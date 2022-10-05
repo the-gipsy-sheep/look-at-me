@@ -5,5 +5,9 @@ Rails.application.routes.draw do
     resources :bookings
   end
 
+  resources :users do
+    resources :bookings
+  end
+
   root to: "pages#home"
 end
