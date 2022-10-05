@@ -1,31 +1,35 @@
 class BookingsController < ApplicationController
   before_action :set_user, only: %i[new create edit update destroy]
-  before_action :set_product, only: %i[show edit update destroy]
+  before_action :set_product, only: %i[new create show edit update destroy]
 
   def index
-    @bookings = Booking.all
+    @bookings = policy_scope(Booking)
   end
 
   def new
     @booking = Booking.new
+    authorize @booking
   end
 
   def show
     @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.user_id = @user
-    @booking.product_id = @product
+    @booking.user_id = @user.id
+    @booking.product_id = @product.id
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to bookings_path
     else
       render :new, status: :unprocessable_entity
     end
+    authorize @booking
   end
 
   def edit
+    authorize @booking
   end
 
   def update
@@ -34,12 +38,14 @@ class BookingsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+    authorize @booking
   end
 
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
     redirect_to products_path
+    authorize @booking
   end
 
   private
