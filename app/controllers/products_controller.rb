@@ -3,14 +3,17 @@ class ProductsController < ApplicationController
   before_action :set_product, only: %i[show edit update destroy]
 
   def index
-    @products = Product.all
+    # @products = Product.all
+    @products = policy_scope(Product)
   end
 
   def new
     @product = Product.new
+    authorize @product
   end
 
   def show
+    authorize @product
   end
 
   def create
@@ -21,12 +24,15 @@ class ProductsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+    authorize @product
   end
 
   def edit
+    authorize @product
   end
 
   def update
+    authorize @product
     if @product.save
       redirect_to products_path
     else
@@ -35,6 +41,7 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    authorize @product
     @product.destroy
     redirect_to products_path
   end
