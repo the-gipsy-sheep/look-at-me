@@ -59,7 +59,7 @@ prod2 = Product.create(
   brand: "sin etiqueta",
   category_id: pantalones.id,
   user_id: user1.id,
-  images_url: "https://www.pinterest.com.mx/pin/821062575785658104/?nic_v3=1a3IdkJeJ",
+  images_url: "https://www.sweet.com.ar/uploads/picture/image/9916/069247be-1.jpg",
   gender: "mujer"
 )
 
