@@ -6,38 +6,56 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "nueva contraseña" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "nueva contraseña" } %>
-    <%= f.input :username,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "usuario" },
-                hint: "min 6 caracteres"%>
-    <%= f.input :first_name,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "nombre" }%>
-    <%= f.input :last_name,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "apellido" }%>
-    <%= f.input :phone_number,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "telefono" }%>
-    <%= f.input :address,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "direccion" }%>
+    <div class="mb-3 align-items-center">
+      <div class="col-auto">
+      <%= f.input :email,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "email" }%>
+      </div>
+      <div class="col-auto">
+      <%= f.input :password,
+                  required: true,
+                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                  input_html: { autocomplete: "nueva contraseña" } %>
+      </div>
+      <div class="col-auto">
+      <%= f.input :password_confirmation,
+                  required: true,
+                  input_html: { autocomplete: "nueva contraseña" } %>
+      </div>
+      <div class="col-auto">
+      <%= f.input :username,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "usuario" },
+                  hint: "min 6 caracteres"%>
+      </div>
+      <div class="col-auto">
+      <%= f.input :first_name,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "nombre" }%>
+      </div>
+      <div class="col-auto">
+      <%= f.input :last_name,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "apellido" }%>
+      </div>
+      <div class="col-auto">
+      <%= f.input :phone_number,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "telefono" }%>
+      </div>
+      <div class="col-auto">
+      <%= f.input :address,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "direccion" }%>
+      </div>
+      </div>
   </div>
 
   <div class="form-actions">
