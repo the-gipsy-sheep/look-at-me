@@ -1,10 +1,15 @@
 class ProductsController < ApplicationController
-  before_action :set_user, only: %i[new create edit update destroy]
+  before_action :set_user, only: %i[new create edit update destroy my_products]
   before_action :set_product, only: %i[show edit update destroy]
 
   def index
     # @products = Product.all
     @products = policy_scope(Product)
+  end
+
+  def my_products
+    authorize Product
+    @products = Product.where(user_id: @user)
   end
 
   def new
