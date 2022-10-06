@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+      <% @bookings.each do |booking| %>
+        <div class="col-4 col-sm-4 col-lg-4">
+              <div class="card m-3">
+                <%# <% product.photos.each do |photo| %>
+                  <%# <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+                <%# <% end %>
+                <div class="card-body">
+                  <h4 class="card-title">Reserva hecha por <%= booking.user.username %></h5>
+                  <h5 class="card-title"><%= booking.product.title %></h5>
+                  <p class="card-text"><%= booking.product.description %></p>
+                  <p class="card-text"><%= booking.product.price %></p>
+                  <div>
+                    <p>Desde: <%= booking.start_date %></p>
+                    <p>Hasta: <%= booking.finish_date %></p>
+                    <p>Cantidad de Días: <%= booking.finish_date - booking.start_date %></p>
+                  </div>
+                  <%# <%= link_to "editar", edit_product_booking_path(booking), class:"btn btn-primary"</a> %>
+                  <%# <%= link_to "eliminar", product_booking_path(booking), class:"btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Seguro?"} %><%#</a> %>
+                </div>
+              </div>
+        </div>
+      <% end %>
+  </div>
+</div>

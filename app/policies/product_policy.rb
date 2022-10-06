@@ -5,10 +5,14 @@ class ProductPolicy < ApplicationPolicy
     #   scope.all
     # end
     def resolve
-       scope.all # Si el usuario puede ver todos los productos
+      scope.all # Si el usuario puede ver todos los productos
     #   scope.where(user: user) # Si el User puede solo ver sus productos
       # scope.where("name LIKE 't%'") # Ej. Si el usuario puede solo ver los productos que empiecen con `t`
     end
+  end
+
+  def my_products?
+    true
   end
 
   def show?
