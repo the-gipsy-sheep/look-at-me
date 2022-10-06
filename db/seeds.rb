@@ -46,7 +46,7 @@ prod1 = Product.create(
   brand: "Chonberse",
   category_id: calzado.id,
   user_id: user1.id,
-  images_url: "#",
+  images_url: "https://equus.vtexassets.com/arquivos/ids/194486-1600-auto?v=637242078205870000&width=1600&height=auto&aspect=true",
   gender: "mujer"
 )
 
@@ -59,7 +59,7 @@ prod2 = Product.create(
   brand: "sin etiqueta",
   category_id: pantalones.id,
   user_id: user1.id,
-  images_url: "#",
+  images_url: "https://www.sweet.com.ar/uploads/picture/image/9916/069247be-1.jpg",
   gender: "mujer"
 )
 
@@ -72,7 +72,7 @@ prod3 = Product.create(
   brand: "Gonchex",
   category_id: remeras.id,
   user_id: user2.id,
-  images_url: "#",
+  images_url: "https://d3ugyf2ht6aenh.cloudfront.net/stores/107/136/products/pack3-remera-v-mix-22e341246188140a9f16535772725611-480-0.jpg",
   gender: "hombre"
 )
 
@@ -85,7 +85,7 @@ prod4 = Product.create(
   brand: "Armani",
   category_id: trajes.id,
   user_id: user2.id,
-  images_url: "#",
+  images_url: "https://equus.vtexassets.com/arquivos/ids/196356-800-auto?v=637353617772770000&width=800&height=auto&aspect=true",
   gender: "hombre"
 )
 

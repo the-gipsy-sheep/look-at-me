@@ -1,25 +1,35 @@
 <div class="container">
   <div class="row">
-      <% @products.each do |product| %>
-        <div class="col-4 col-sm-4 col-lg-4">
-              <div class="card m-3">
-                <% product.photos.each do |photo| %>
-                  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-                <% end %>
-                <div class="card-body">
-                  <h5 class="card-title"><%= product.title %></h5>
-                  <p class="card-text"><%= product.description %></p>
-                  <p class="card-text"><%= product.price %></p>
-                  <p class="card-text"><%= "Color: #{product.color if product.color?}" %></p>
-                  <p class="card-text"><%= "Marca: #{product.brand.capitalize if product.brand?}" %></p>
-                  <p class="card-text"><%= "Talle: #{product.size if product.size?}" %></p>
-                  <p class="card-text"><%= "Género: #{product.gender.capitalize if product.gender?}" %></p>
-                  <%= link_to "info", product_path(product), class:"btn btn-primary" %></a>
-                  <%= link_to "editar", edit_product_path(product), class:"btn btn-primary" %></a>
-                  <%= link_to "eliminar", product_path(product), class:"btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Seguro?"} %></a>
-                </div>
-              </div>
+    <% @products.each do |product| %>
+      <div class="col-md-3 col-sm-6">
+        <div class="product-grid">
+          <div class="product-image">
+            <img src="https://www.sweet.com.ar/uploads/picture/image/9916/069247be-1.jpg"  class="image">
+              <%#<% product.photos.each do |photo| %>
+                <%#<%= photo %>
+                <%# <%=cl_image_tag photo.key%>
+              <%#<% end %>
+            <ul class="product-links">
+              <li><a href="#"><i class="fa fa-heart"></i></a></li>
+              <li><a href="#"><i class="fa fa-random"></i></a></li>
+              <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+            </ul>
+            <a href="#" class="product-view"><i class="fa fa-search"></i></a>
+          </div>
+          <div class="product-content">
+            <ul class="rating">
+              <li class="fas fa-star"></li>
+              <li class="fas fa-star"></li>
+              <li class="fas fa-star"></li>
+              <li class="fas fa-star"></li>
+              <li class="fas fa-star disable"></li>
+              <li class="disable">(1 reviews)</li>
+            </ul>
+            <h3 class="title"><a href="#"><%= product.title %></a></h3>
+            <div class="price">$<%= product.price %></div>
+          </div>
         </div>
-      <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
