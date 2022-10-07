@@ -38,8 +38,8 @@ class ProductsController < ApplicationController
 
   def update
     authorize @product
-    if @product.save
-      redirect_to products_path
+    if @product.update(product_params)
+    redirect_to products_path
     else
       render :new, status: :unprocessable_entity
     end
