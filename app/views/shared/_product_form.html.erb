@@ -2,11 +2,11 @@
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.input :price %>
-  <%= f.association :category, collection: Category.all, prompt: "Elegí tu categoría" %>
+  <%= f.association :category, collection: Category.all, prompt: "Elegí tu categoría", label_method: :description %>
   <%= f.input :color %>
   <%= f.input :size %>
   <%= f.input :brand %>
-  <%= f.input :gender, collection: %w[mujer hombre niño niña sin\ genero], prompt: "Elegí género" %>
+  <%= f.input :gender, collection: %w[mujer hombre niño niña sin\ genero], prompt: "Elegí género", label: :description %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.button :submit %>
 <% end %>
