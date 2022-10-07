@@ -12,7 +12,7 @@
     <% end %>
 
     <%= f.input :password,
-                hint: "No completar si no deseas modificarlo",
+                hint: "No completar si no desea actualizar",
                 required: false,
                 input_html: { autocomplete: "nueva contraseña" },
                 label: "Contraseña" %>
@@ -21,7 +21,7 @@
                 input_html: { autocomplete: "nueva contraseña" },
                 label: "Confirmar Contraseña" %>
     <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
+                hint: "Es necesario repetir la contraseña para confirmar los cambios",
                 required: true,
                 input_html: { autocomplete: "current-password" },
                 label: "Repetir Contraseña" %>
