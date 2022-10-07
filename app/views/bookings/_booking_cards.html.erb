@@ -1,21 +1,24 @@
 <div class="container">
   <div class="row">
       <% @bookings.each do |booking| %>
-        <div class="col-4 col-sm-4 col-lg-4">
-          <div class="card m-3">
-            <%# <% product.photos.each do |photo| %>
-              <%# <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-            <%# <% end %>
-            <div class="card-body">
-              <h4 class="card-title">Reserva hecha por <%= booking.user.username %></h5>
-              <h5 class="card-title"><%= booking.product.title %></h5>
-              <p class="card-text"><%= booking.product.description %></p>
-              <p class="card-text"><%= booking.product.price %></p>
+        <div class="offset-2 col-8 col-sm-8 col-lg-8">
+          <div class="card-product m-3">
+            <%= image_tag booking.product.images_url, height: 300, width: 400, crop: :fill %>
+            <div class="card-product-infos">
+              <h4>Reserva hecha por <%= booking.user.username %></h5>
+              <h5 class="text-uppercase"><%= booking.product.title %></h5>
+              <p class="text-capitalize"><%= booking.product.description %></p>
+              <p>$<%= booking.product.price %> x día</p>
               <div>
-                <p>Desde: <%= booking.start_date %></p>
-                <p>Hasta: <%= booking.finish_date %></p>
+                <p>Desde: <%= booking.start_date %> Hasta: <%= booking.finish_date %></p>
                 <p>Cantidad de Días: <%= booking.finish_date - booking.start_date %></p>
-                <%# <%= link_to "editar", edit_product_booking_path(booking.product_id, booking), class:"btn btn-primary" %>
+                <p class="card-price">Monto Total: $<%= (booking.finish_date - booking.start_date).to_i *  booking.product.price %></p>
+                <% if booking.status == "pendiente"  %>
+                  <p>Estado de la Reserva: Pendiente de Respuesta</p>
+                <% else %>
+                  <p class="btn btn-success"><i class="fa-solid fa-check"></i></p>
+                  <p class="btn btn-danger"><i class="fa-solid fa-xmark"></i></p>
+                <% end %>
                 <%= link_to '<i class="fa fa-trash"></i>'.html_safe, product_booking_path(booking.product_id, booking), class:"btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Seguro?"} %>
               </div>
             </div>
