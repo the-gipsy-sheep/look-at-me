@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
-      <% @bookings.each do |booking| %>
+    <h2>Reservas de mis productos</h2>
+      <% @bookings.where.not(user: current_user).each do |booking| %>
         <div class="offset-2 col-8 col-sm-8 col-lg-8">
           <div class="card-product m-3">
             <%= image_tag booking.product.images_url, height: 300, width: 400, crop: :fill %>
@@ -19,6 +20,29 @@
                   <p class="btn btn-success"><i class="fa-solid fa-check"></i></p>
                   <p class="btn btn-danger"><i class="fa-solid fa-xmark"></i></p>
                 <% end %>
+                <%= link_to '<i class="fa fa-trash"></i>'.html_safe, product_booking_path(booking.product_id, booking), class:"btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Seguro?"} %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+  </div>
+  <div class="row">
+    <h2>Reservas realizadas por mi</h2>
+      <% @bookings.where(user: current_user).each do |booking| %>
+        <div class="offset-2 col-8 col-sm-8 col-lg-8">
+          <div class="card-product m-3">
+            <%= image_tag booking.product.images_url, height: 300, width: 400, crop: :fill %>
+            <div class="card-product-infos">
+              <h4>Reserva hecha por <%= booking.user.username %></h5>
+              <h5 class="text-uppercase"><%= booking.product.title %></h5>
+              <p class="text-capitalize"><%= booking.product.description %></p>
+              <p>$<%= booking.product.price %> x día</p>
+              <div>
+                <p>Desde: <%= booking.start_date %> Hasta: <%= booking.finish_date %></p>
+                <p>Cantidad de Días: <%= booking.finish_date - booking.start_date %></p>
+                <p class="card-price">Monto Total: $<%= (booking.finish_date - booking.start_date).to_i *  booking.product.price %></p>
+                <p>Estado de la Reserva: <%= booking.status %></p>
                 <%= link_to '<i class="fa fa-trash"></i>'.html_safe, product_booking_path(booking.product_id, booking), class:"btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Seguro?"} %>
               </div>
             </div>
