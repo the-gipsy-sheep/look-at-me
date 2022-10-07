@@ -14,8 +14,8 @@
                 <p>Desde: <%= booking.start_date %> Hasta: <%= booking.finish_date %></p>
                 <p>Cantidad de Días: <%= booking.finish_date - booking.start_date %></p>
                 <p class="card-price">Monto Total: $<%= (booking.finish_date - booking.start_date).to_i *  booking.product.price %></p>
-                <% if booking.status == "pendiente"  %>
-                  <p>Estado de la Reserva: Pendiente de Respuesta</p>
+                <% unless booking.status == "pendiente"  %>
+                  <p>Estado de la Reserva: <%= booking.status %></p>
                 <% else %>
                   <p class="btn btn-success"><i class="fa-solid fa-check"></i></p>
                   <p class="btn btn-danger"><i class="fa-solid fa-xmark"></i></p>

@@ -21,6 +21,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user_id = @user.id
     @booking.product_id = @product.id
+    @booking.status = "pendiente"
     if @booking.save
       redirect_to bookings_path
     else
