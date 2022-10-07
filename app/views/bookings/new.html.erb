@@ -1,1 +1,22 @@
-<%= render "booking_form" %>
+<div class="container">
+  <div class="row">
+    <div class="offset-2 col-8 col-sm-8 col-lg-8">
+      <div class="card-product m-3">
+        <%= image_tag @product.images_url, height: 300, width: 400, crop: :fill %>
+        <div class="card-product-infos">
+          <h5 class="text-uppercase"><%= @product.title %></h5>
+          <p class="text-capitalize"><%= @product.description %></p>
+          <p>$<%= @product.price %> x día</p>
+          <p> Producto de <%= @product.user.username %></p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <h3>Reserva el producto elijiendo las fechas en que lo necesitas</h3>
+    <div class="offset-2 col-8">
+      <%= render "booking_form" %>
+    </div>
+  </div>
+</div>
