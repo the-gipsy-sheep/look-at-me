@@ -1,35 +1,36 @@
-<div class="container">
-  <div class="row">
-    <% @products.each do |product| %>
-      <div class="col-md-3 col-sm-6">
-        <div class="product-grid">
-          <div class="product-image">
-            <img src="https://www.sweet.com.ar/uploads/picture/image/9916/069247be-1.jpg"  class="image">
-              <%#<% product.photos.each do |photo| %>
-                <%#<%= photo %>
-                <%# <%=cl_image_tag photo.key%>
-              <%#<% end %>
-            <ul class="product-links">
-              <li><a href="#"><i class="fa fa-heart"></i></a></li>
-              <li><a href="#"><i class="fa fa-random"></i></a></li>
-              <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-            </ul>
-            <a href="#" class="product-view"><i class="fa fa-search"></i></a>
-          </div>
-          <div class="product-content">
-            <ul class="rating">
-              <li class="fas fa-star"></li>
-              <li class="fas fa-star"></li>
-              <li class="fas fa-star"></li>
-              <li class="fas fa-star"></li>
-              <li class="fas fa-star disable"></li>
-              <li class="disable">(1 reviews)</li>
-            </ul>
-            <h3 class="title"><a href="#"><%= product.title %></a></h3>
-            <div class="price">$<%= product.price %></div>
-          </div>
+<div class=“container”>
+<div class="row">
+  <% @products.each do |product| %>
+    <div class="col-md-3 col-sm-6 mt-3">
+      <div class="product-grid">
+        <div class="product-image">
+          <a href="#" class="image">
+          <% if product.photos.first == nil%>
+          <% else %>
+              <%=cl_image_tag product.photos.first.key, height: 300, width: 400, crop: :fill, class:"img-1"%>
+              <%=cl_image_tag product.photos.last.key, height: 300, width: 400, crop: :fill, class:"img-2"%>
+            <% end %>
+          </a>
+          <ul class="product-links">
+            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+            <li><a href="#"><i class="fa fa-random"></i></a></li>
+            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+          </ul>
+          <a href="#" class="product-view"><i class="fa fa-search"></i></a>
+        </div>
+        <div class="product-content">
+          <ul class="rating">
+            <li class="fas fa-star"></li>
+            <li class="fas fa-star"></li>
+            <li class="fas fa-star"></li>
+            <li class="fas fa-star"></li>
+            <li class="fas fa-star disable"></li>
+            <li class="disable">(1 reviews)</li>
+          </ul>
+          <h3 class="title"><a href="#"><%= product.title %></a></h3>
+          <div class="price"><%= product.price %></div>
         </div>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
