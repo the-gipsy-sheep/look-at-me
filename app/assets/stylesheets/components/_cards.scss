@@ -52,7 +52,9 @@
   }
 }
 
-.product-grid{ font-family: 'Poppins', sans-serif; }
+.product-grid{ font-family: 'Poppins', sans-serif;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
 .product-grid .product-image{
     overflow: hidden;
     position: relative;
