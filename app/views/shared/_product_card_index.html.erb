@@ -41,7 +41,9 @@
               <li class="list-group-item"><i class="fa-solid fa-star-of-life"></i>   Usuario: <%= product.user.username %></li>
             </ul>
             <div>
-              <%= link_to "Reservalo", new_product_booking_path(product), class:"btn btn-primary text-uppercase" %>
+              <%= link_to "Reservar", new_product_booking_path(product), class:"btn btn-primary text-uppercase" if product.user != current_user %>
+              <%= link_to '<i class="fa-solid  fa-pen"></i>'.html_safe, edit_product_path(product), class:"btn btn-primary btn-sm mx-1" if product.user == current_user %>
+              <%= link_to '<i class="fa fa-trash"></i>'.html_safe, product_path(product), class:"btn btn-danger btn-sm mx-1", data: {turbo_method: :delete, turbo_confirm: "Seguro?"} if product.user == current_user %>
               <div class="price">$ <%= number_with_precision(product.price, :precision => 0, :delimiter => ',') %></div>
             </div>
           </div>
