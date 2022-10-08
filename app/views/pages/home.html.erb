@@ -1,14 +1,11 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path('banners/banner-blurred.jpg') %>);">
-
     <div class="content center-column offset-2">
       <h1 class="text-uppercase">Look at Me</h1>
-      <h2 class="text-light">Tu armario infinito</h2>
+      <h2 class="text-light mb-3">Tu armario infinito</h2>
+      <%= link_to "Registrate", new_user_registration_path, class: "btn btn-primary fs-4 fw-bold font-monospace rounded-pill mt-3" if !current_user %>
+      <%= link_to "Reserva tu Prenda", new_user_registration_path, class: "btn btn-primary fs-4 fw-bold font-monospace rounded-pill mt-3" if current_user %>
       <p><span data-controller="typed-js"></span></p>
-
-      <%= link_to "Registrate", new_user_registration_path, class: "btn btn-primary fs-4 fw-bold font-monospace rounded-pill" if !current_user %>
-      <%= link_to "Reserva tu Prenda", new_user_registration_path, class: "btn btn-primary fs-4 fw-bold font-monospace rounded-pill" if current_user %>
     </div>
-
 </div>
 
 <div class="cards my-3">
