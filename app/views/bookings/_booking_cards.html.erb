@@ -4,7 +4,7 @@
       <% @bookings.where.not(user: current_user).each do |booking| %>
         <div class="offset-2 col-8 col-sm-8 col-lg-8">
           <div class="card-product m-3">
-            <%= image_tag booking.product.images_url, height: 300, width: 400, crop: :fill %>
+            <%= cl_image_tag booking.product.photos.first.key, height: 300, width: 400, crop: :fill %>
             <div class="card-product-infos">
               <div class="d-flex w-100">
                 <h5 class="text-uppercase"><%= booking.product.title %></h5>
@@ -41,7 +41,7 @@
       <% @bookings.where(user: current_user).each do |booking| %>
         <div class="offset-2 col-8 col-sm-8 col-lg-8">
           <div class="card-product m-3">
-            <%= image_tag booking.product.images_url, height: 300, width: 400, crop: :fill %>
+            <%= cl_image_tag booking.product.photos.first.key, height: 300, width: 400, crop: :fill %>
             <div class="card-product-infos">
               <div class="status-option">
                 <p><span class="text-uppercase">
