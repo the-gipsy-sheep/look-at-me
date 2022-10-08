@@ -18,7 +18,10 @@
                 <p class="card-price">$<%= number_with_precision(((booking.finish_date - booking.start_date).to_i *  booking.product.price), :precision => 0, :delimiter => ',') %></p>
                 <% unless booking.status == "pendiente"  %>
                   <div class="status-option">
-                    <p><span class="text-uppercase"><%= booking.status %></span></p>
+                    <p><span class="text-uppercase">
+                      <%= '<i class="fas fa-check-circle text-success"></i>'.html_safe if booking.status == "aceptado" %>
+                      <%= '<i class="fas fa-times-circle text-danger"></i>'.html_safe if booking.status == "rechazado" %>
+                    </span></p>
                   </div>
                 <% else %>
                   <div class="d-flex p-1 status-option">
@@ -40,7 +43,13 @@
           <div class="card-product m-3">
             <%= image_tag booking.product.images_url, height: 300, width: 400, crop: :fill %>
             <div class="card-product-infos">
-              <p class="status-option"><span class="text-uppercase"><%= booking.status %></span></p>
+              <div class="status-option">
+                <p><span class="text-uppercase">
+                  <%= '<i class="fas fa-check-circle text-success"></i>'.html_safe if booking.status == "aceptado" %>
+                  <%= '<i class="fas fa-times-circle text-danger"></i>'.html_safe if booking.status == "rechazado" %>
+                  <%= '<i class="fas fa-clock text-warning"></i>'.html_safe if booking.status == "pendiente" %>
+                </span></p>
+              </div>
               <h5 class="text-uppercase"><%= booking.product.title %></h5>
               <p class="text-capitalize"><%= booking.product.description %></p>
               <p>$<%= '%.0f' %  booking.product.price %> x día</p>
