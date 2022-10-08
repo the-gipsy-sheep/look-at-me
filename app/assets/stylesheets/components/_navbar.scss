@@ -13,6 +13,8 @@
 
 .nav-link {
   color: $logo_green;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .brand {
@@ -20,7 +22,9 @@
   color: $logo_green;
   font-weight: bold;
   display: inline-block;
-  margin:auto;
+  margin: auto;
   font-size: 24px;
   font-family: $headers-font;
+  text-decoration: none;
+  padding: 0;
 }
