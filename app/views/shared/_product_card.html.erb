@@ -1,7 +1,7 @@
 <div class=“container”>
   <div class="row">
     <% @products.where.not(user: current_user).each do |product| %>
-      <div class="col-md-3 col-sm-6 mt-3">
+      <div class="col-md-3 col-sm-6 mt-3" style="background: white !important">
         <div class="product-grid p-4">
           <div class="product-image">
             <a href="<%=product_path(product)%>" class="image">
