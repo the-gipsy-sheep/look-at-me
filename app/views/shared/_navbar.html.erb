@@ -1,10 +1,10 @@
 <div class="navbar navbar-expand-sm navbar-light sticky-top navbar-lewagon">
   <div class="container-fluid">
-    <div class="brand-section d-flex">
-      <%= link_to root_path, class: "navbar-brand" do %>
+    <div class="">
+      <%= link_to root_path, class: "navbar-brand d-flex" do %>
         <%= image_tag "logos/logo_square.png" %>
+        <p class="brand mx-2">Look at Me</p>
       <% end %>
-      <p class="brand">Look at Me</p>
     </div>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,13 +15,13 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Productos", products_path, class: "nav-link" %>
+            <%= link_to "Placard", products_path, class: "nav-link" %>
           </li>
           <li class="nav-item active">
-            <%= link_to "Nueva Publicación", new_product_path, class: "nav-link" %>
+            <%= link_to "Nuevo Producto", new_product_path, class: "nav-link" %>
           </li>
           <li class="nav-item active">
-            <%= link_to "Home", root_path, class: "nav-link" %>
+            <%= link_to "Inicio", root_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag current_user.avatar_url? ? current_user.avatar_url : "https://kitt.lewagon.com/placeholder/users/random"  , class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -35,7 +35,7 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <%= link_to "Loguearse/Registrarse", new_user_session_path, class: "nav-link" %>
           </li>
         <% end %>
       </ul>
