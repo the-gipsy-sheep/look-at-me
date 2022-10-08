@@ -18,6 +18,7 @@
                 label: "Confirmar su nueva contraseña",
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :photos, label: "Fotos", as: :file, input_html: { multiple: true } %>
   </div>
 
   <div class="form-actions">
