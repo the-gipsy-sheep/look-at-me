@@ -1,12 +1,17 @@
 <%= simple_form_for @product do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :price %>
-  <%= f.association :category, collection: Category.all, prompt: "Elegí tu categoría", label_method: :description %>
+  <%= f.input :title,
+  label: "Titulo" %>
+  <%= f.input :description,
+  label: "Descripcion" %>
+  <%= f.input :price,
+  label: "Precio" %>
+  <%= f.association :category, label: "Categoria", collection: Category.all, prompt: "Elegí tu categoría", label_method: :description %>
   <%= f.input :color %>
-  <%= f.input :size %>
-  <%= f.input :brand %>
-  <%= f.input :gender, collection: %w[mujer hombre niño niña sin\ genero], prompt: "Elegí género", label: :description %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.button :submit %>
+  <%= f.input :size,
+  label: "Talle" %>
+  <%= f.input :brand,
+  label: "Marca" %>
+  <%= f.input :gender, collection: %w[mujer hombre niño niña sin\ genero], prompt: "Elegí género", label: :Descripcion %>
+  <%= f.input :photos, label: "Fotos", as: :file, input_html: { multiple: true } %>
+  <%= f.button :submit  %>
 <% end %>

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container offset-md-2">
 <h2>Ingresar</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
@@ -7,12 +7,13 @@
                 required: false,
                 autofocus: true,
                 input_html: { autocomplete: "email" },
-                label: "correo electronico" %>
+                label: "Correo Electronico" %>
     <%= f.input :password,
                 required: false,
                 input_html: { autocomplete: "current-password" },
-                label: "contraseña" %>
-    <%= f.input :remember_me, label: "grabar", as: :boolean if devise_mapping.rememberable? %>
+                label: "Contraseña" %>
+    <%= f.input :photos, label: "Fotos", as: :file, input_html: { multiple: true } %>
+    <%= f.input :remember_me, label: "Guardar", as: :boolean if devise_mapping.rememberable? %>
   </div>
 
   <div class="form-actions">
