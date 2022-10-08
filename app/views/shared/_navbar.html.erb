@@ -1,8 +1,11 @@
 <div class="navbar navbar-expand-sm navbar-light sticky-top navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "logos/logo_square.png" %>
-    <% end %>
+    <div class="brand-section d-flex">
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag "logos/logo_square.png" %>
+      <% end %>
+      <p class="brand">Look at Me</p>
+    </div>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

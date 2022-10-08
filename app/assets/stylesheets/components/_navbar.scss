@@ -14,3 +14,13 @@
 .nav-link {
   color: $logo_green;
 }
+
+.brand {
+  text-transform: uppercase;
+  color: $logo_green;
+  font-weight: bold;
+  display: inline-block;
+  margin:auto;
+  font-size: 24px;
+  font-family: $headers-font;
+}
