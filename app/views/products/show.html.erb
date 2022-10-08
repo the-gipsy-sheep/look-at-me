@@ -1,40 +1,53 @@
 <div class="container">
-  <div class="row">
-    <div class="offset-2 col-8 col-sm-8 col-lg-8">
-      <div class="card-product-show m-3 p-4">
-        <div class="product-image">
-      <h1><%= @product.title%></h1>
-      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <%=cl_image_tag @product.photos.first.key, crop: :fill, class:"d-block w-100"%>
+  <div class="row productfotocard mt-4">
+    <div class="offset-1 col-5">
+            <div class="product-image">
+              <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <%=cl_image_tag @product.photos.first.key, crop: :fill, class:"show-foto"%>
+                  </div>
+                  <div class="carousel-item">
+                    <%=cl_image_tag @product.photos.last.key, crop: :fill, class:"show-foto" %>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            </div>
+    </div>
+    <div class= "col-5">
+      <div class="card-product-show">
+          <div class="m-3 p-4">
+              <h1 class="text-uppercase mb-4 text-center"><%= @product.title%></h1>
+            <div class="card-product-infos">
+              <p class="text-capitalize"><%= @product.description %></p>
+              <p class="text-capitalize"><%= @product.category.description + " - " + @product.gender %></p>
+
+              <ul class="list-group list-group-flush my-5">
+                <li class="list-group-item"><i class="far fa-copyright"></i>   Marca: <%= @product.brand %></li>
+                <li class="list-group-item"><i class="fas fa-palette"></i>   Color: <%= @product.color %></li>
+                <li class="list-group-item"><i class="fas fa-ruler-horizontal"></i>   Talle: <%= @product.size %></li>
+                <li class="list-group-item"><i class="fas fa-venus-mars"></i></i>   Genero: <%= @product.gender %></li>
+                <li class="list-group-item"><i class="fas fa-user"></i>   Usuario: <%= @product.user.username %></li>
+                <li class="list-group-item">$ <%= number_with_precision(@product.price, :precision => 0, :delimiter => ',') %></li>
+
+              </ul>
+            </div>
+            <div class="d-flex justify-content-around">
+              <%= link_to "Reservar", new_product_booking_path(@product), class:"btn btn-primary text-uppercase" if @product.user != current_user %>
+              <%= link_to '<i class="fa-solid  fa-pen"></i>'.html_safe, edit_product_path(@product), class:"btn btn-primary mx-1" if @product.user == current_user %>
+              <%= link_to '<i class="fa fa-trash"></i>'.html_safe, product_path(@product), class:"btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Seguro?"} if @product.user == current_user %>
+              <%#= button_to "Destroy this produnct", @product, method: :delete if policy(@product).destroy? %>
+            </div>
           </div>
-          <div class="carousel-item">
-            <%=cl_image_tag @product.photos.last.key, crop: :fill, class:"d-block w-100" %>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-      <div class="card-product-infos">
-        <ul class="list-group list-group-flush mb-3">
-          <li class="list-group-item"><i class="fa-solid fa-star-of-life"></i>   Marca: <%= @product.brand %></li>
-          <li class="list-group-item"><i class="fa-solid fa-star-of-life"></i>   Color: <%= @product.color %></li>
-          <li class="list-group-item"><i class="fa-solid fa-star-of-life"></i>   Talle: <%= @product.size %></li>
-          <li class="list-group-item"><i class="fa-regular fa-person-half-dress"></i>   Género: <%= @product.gender %></li>
-          <li class="list-group-item"><i class="fa-solid fa-star-of-life"></i>   Usuario: <%= @product.user.username %></li>
-        </ul>
-      </div>
-      <div class="d-flex justify-content-around">
-        <a class="btn btn-primary" href="<%=new_product_booking_path(@product)%>" role="button">ALQUILAR</a>
-        <%= link_to '<i class="fa-solid  fa-pen"></i>'.html_safe, edit_product_path(@product), class:"btn btn-primary mx-1" if @product.user == current_user %>
-        <%= link_to '<i class="fa fa-trash"></i>'.html_safe, product_path(@product), class:"btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Seguro?"} if @product.user == current_user %>
-        <%#= button_to "Destroy this produnct", @product, method: :delete if policy(@product).destroy? %>
       </div>
     </div>
   </div>
