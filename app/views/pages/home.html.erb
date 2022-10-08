@@ -31,21 +31,7 @@
   </div>
 </div>
 <h2 class="text-uppercase my-5">Encuentrá tu prenda ideal</h2>
-<div class="cards my-3">
-  <% @products.each do |product| %>
-    <div class="card">
-      <img src="<%= product.images_url %>" class="card-img-top" alt="...">
-      <div class="card-body text-center">
-        <h5 class="card-title text-uppercase"><%= product.title %></h5>
-        <p class="card-text"><%= product.description %></p>
-        <p class="card-text">$<%= product.price %></p>
-        <p class="card-text"><%= "Color: #{product.color if product.color?}" %></p>
-        <p class="card-text"><%= "Marca: #{product.brand.capitalize if product.brand?}" %></p>
-        <p class="card-text"><%= "Talle: #{product.size if product.size?}" %></p>
-        <p class="card-text"><%= "Género: #{product.gender.capitalize if product.gender?}" %></p>
-        <p class="card-text"><%= "Owner: #{product.user.username}" %></p>
-        <%= link_to "Alquilalo YA", product_path(product), class:"btn btn-primary" %></a>
-      </div>
-    </div>
-  <% end %>
+
+<div class="container">
+  <%= render "shared/product_card" %>
 </div>
