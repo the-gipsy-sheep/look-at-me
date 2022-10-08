@@ -34,16 +34,16 @@
             <p class="text-capitalize"><%= product.category.description + " - " + product.gender %></p>
 
             <ul class="list-group list-group-flush mb-3">
-              <li class="list-group-item"><i class="fa-solid fa-star-of-life"></i>   Marca: <%= product.brand %></li>
-              <li class="list-group-item"><i class="fa-solid fa-star-of-life"></i>   Color: <%= product.color %></li>
-              <li class="list-group-item"><i class="fa-solid fa-star-of-life"></i>   Talle: <%= product.size %></li>
-              <li class="list-group-item"><i class="fa-regular fa-person-half-dress"></i>   Genero: <%= product.gender %></li>
-              <li class="list-group-item"><i class="fa-solid fa-star-of-life"></i>   Usuario: <%= product.user.username %></li>
+              <li class="list-group-item"><i class="far fa-copyright"></i>   Marca: <%= product.brand %></li>
+              <li class="list-group-item"><i class="fas fa-palette"></i>   Color: <%= product.color %></li>
+              <li class="list-group-item"><i class="fas fa-ruler-horizontal"></i>   Talle: <%= product.size %></li>
+              <li class="list-group-item"><i class="fas fa-venus-mars"></i></i>   Genero: <%= product.gender %></li>
+              <li class="list-group-item"><i class="fas fa-user"></i>   Usuario: <%= product.user.username %></li>
             </ul>
             <div>
               <%= link_to "Reservar", new_product_booking_path(product), class:"btn btn-primary text-uppercase" if product.user != current_user %>
-              <%= link_to '<i class="fa-solid  fa-pen"></i>'.html_safe, edit_product_path(product), class:"btn btn-primary btn-sm mx-1" if product.user == current_user %>
-              <%= link_to '<i class="fa fa-trash"></i>'.html_safe, product_path(product), class:"btn btn-danger btn-sm mx-1", data: {turbo_method: :delete, turbo_confirm: "Seguro?"} if product.user == current_user %>
+              <%= link_to '<i class="fa-solid  fa-pen"></i>'.html_safe, edit_product_path(product), class:"btn btn-primary mx-1" if product.user == current_user %>
+              <%= link_to '<i class="fa fa-trash"></i>'.html_safe, product_path(product), class:"btn btn-danger mx-1", data: {turbo_method: :delete, turbo_confirm: "Seguro?"} if product.user == current_user %>
               <div class="price">$ <%= number_with_precision(product.price, :precision => 0, :delimiter => ',') %></div>
             </div>
           </div>
