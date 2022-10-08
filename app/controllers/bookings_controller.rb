@@ -35,6 +35,7 @@ class BookingsController < ApplicationController
   end
 
   def update
+    @booking.update(status: params[:status]) if params[:status].present?
     if @booking.save
       redirect_to bookings_path
     else
@@ -47,6 +48,7 @@ class BookingsController < ApplicationController
     @booking.destroy
     redirect_to bookings_path
     authorize @booking
+    # el authorize tiene un problema entre el booking y el product
   end
 
   private
