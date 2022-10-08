@@ -38,25 +38,25 @@ user2 = User.create(
 )
 
 prod1 = Product.create(
-  title: "zapatos re facheros",
-  description: "zapatos de lona tipo converse, pero de la salada",
-  color: "rojo",
+  title: "Zapatos de Vestir",
+  description: "Zapatos Giesso de vestir elegantes, de cuero original y suela sintetica",
+  color: "negro",
   size: "42",
   price: 599,
-  brand: "Chonberse",
+  brand: "Giesso",
   category_id: calzado.id,
   user_id: user1.id,
   images_url: "https://equus.vtexassets.com/arquivos/ids/194486-1600-auto?v=637242078205870000&width=1600&height=auto&aspect=true",
-  gender: "mujer"
+  gender: "hombre"
 )
 
 prod2 = Product.create(
-  title: "pantalon denim",
-  description: "slim fit, nunca taxi",
-  color: "azul, obvio",
+  title: "Pantalon Denim de Mujer",
+  description: "Pantalon Denim de Mujer, slim fit con corte moderno",
+  color: "azul",
   size: "L",
   price: 299,
-  brand: "sin etiqueta",
+  brand: "Levi's",
   category_id: pantalones.id,
   user_id: user1.id,
   images_url: "https://www.sweet.com.ar/uploads/picture/image/9916/069247be-1.jpg",
@@ -64,12 +64,12 @@ prod2 = Product.create(
 )
 
 prod3 = Product.create(
-  title: "remera cuello en V",
-  description: "aca va una descripcion de remera",
-  color: "rosadita",
+  title: "Remera Lisa cuello en V",
+  description: "Remera lisa color negra con cuello en V, impecable estado, y poco uso",
+  color: "negra",
   size: "L",
   price: 249,
-  brand: "Gonchex",
+  brand: "H&M",
   category_id: remeras.id,
   user_id: user2.id,
   images_url: "https://d3ugyf2ht6aenh.cloudfront.net/stores/107/136/products/pack3-remera-v-mix-22e341246188140a9f16535772725611-480-0.jpg",
@@ -77,8 +77,8 @@ prod3 = Product.create(
 )
 
 prod4 = Product.create(
-  title: "Sacooooo",
-  description: "pantalon se alquila por separado",
+  title: "Saco de Vestir de Hombre",
+  description: "Saco parte superior del Ambo, el Pantalon se alquila por separado. Talle ajustado.",
   color: "negro",
   size: "L",
   price: 2500,
@@ -94,5 +94,13 @@ book1 = Booking.create(
   start_date: Date.today,
   finish_date: Date.tomorrow,
   product_id: prod1.id,
+  user_id: user2.id
+)
+
+book2 = Booking.create(
+  status: "pendiente",
+  start_date: Date.today,
+  finish_date: Date.tomorrow,
+  product_id: prod2.id,
   user_id: user2.id
 )

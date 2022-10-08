@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" data-controller="bookings">
   <div class="row">
     <h2>Reservas de mis productos</h2>
       <% @bookings.where.not(user: current_user).each do |booking| %>
@@ -17,8 +17,11 @@
                 <% unless booking.status == "pendiente"  %>
                   <p>Estado de la Reserva: <%= booking.status %></p>
                 <% else %>
-                  <p class="btn btn-success"><i class="fa-solid fa-check"></i></p>
-                  <p class="btn btn-danger"><i class="fa-solid fa-xmark"></i></p>
+                  <p>Confirma o Rechaza reserva del usuario?</p>
+                  <div class="d-flex p-1">
+                    <%= button_to '<i class="fa-solid fa-check"></i>'.html_safe, product_booking_path(booking.product_id, booking, status: "aceptado"), remote: true, class:"btn btn-success m-1", method: :patch %>
+                    <%= button_to '<i class="fa-solid fa-xmark"></i>'.html_safe, product_booking_path(booking.product_id, booking, status: "rechazado"), remote: true, class:"btn btn-danger m-1", method: :patch %>
+                  </div>
                 <% end %>
                 <%= link_to '<i class="fa fa-trash"></i>'.html_safe, product_booking_path(booking.product_id, booking), class:"btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Seguro?"} %>
               </div>
