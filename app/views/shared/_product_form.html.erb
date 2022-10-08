@@ -13,5 +13,5 @@
   label: "Marca" %>
   <%= f.input :gender, collection: %w[mujer hombre niño niña sin\ genero], prompt: "Elegí género", label: :Descripcion %>
   <%= f.input :photos, label: "Fotos", as: :file, input_html: { multiple: true } %>
-  <%= f.button :submit  %>
+  <%= f.button :submit, "Actualizar Producto", class: "btn btn-primary"  %>
 <% end %>
