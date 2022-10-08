@@ -1,37 +1,37 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path('banners/banner-blurred.jpg') %>);">
-  <div class="container" >
-    <div class="content center-column">
+
+    <div class="content center-column offset-2">
       <h1 class="text-uppercase">Look at Me</h1>
       <h2 class="text-light">Tu armario infinito</h2>
       <p><span data-controller="typed-js"></span></p>
-      <%= link_to "Registrate", new_user_registration_path, class: "btn btn-primary mt-5" %>
+      <%= link_to "Registrate", new_user_registration_path, class: "btn btn-primary fs-4 fw-bold font-monospace rounded-pill" %>
     </div>
-  </div>
+
 </div>
 
 <div class="cards my-3">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('banners/banner_feature_choice.jpg') %>)">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), url(<%= image_path('banners/banner_feature_choice.jpg') %>)">
     <div class="text-center">
       <h4>ELIGE</h4>
       <p>Selecciona la fecha y las prendas que quieres elegir</p>
     </div>
   </div>
 
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('banners/banner_feature_disfruta.jpg') %>)">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), url(<%= image_path('banners/banner_feature_disfruta.jpg') %>)">
     <div class="text-center">
       <h4>DISFRUTA</h4>
       <p>Viste las mejores prendas como si fueran tuyas</p>
     </div>
   </div>
 
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('banners/banner_feature_coordinar.jpg') %>)">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), url(<%= image_path('banners/banner_feature_coordinar.jpg') %>)">
     <div class="text-center">
       <h4>DEVUELVE</h4>
       <p>Coordina con el dueño como regresarás tu pedido</p>
     </div>
   </div>
 </div>
-<h4 class="my-4">Ultimas incorporaciones a nuestro placard</h4>
+<h4 class="my-4 offset-4">Ultimas incorporaciones a nuestro placard</h4>
 
 <div class="container">
   <%= render "shared/product_card" %>
