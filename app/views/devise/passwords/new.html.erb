@@ -8,11 +8,12 @@
     <%= f.input :email,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "email" } %>
+                input_html: { autocomplete: "email" },
+                label: "Correo electronico" %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions", class: "btn-primary" %>
+    <%= f.button :submit, "Enviar Contraseña", class: "btn-primary" %>
   </div>
 <% end %>
 
