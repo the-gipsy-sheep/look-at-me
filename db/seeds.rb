@@ -104,3 +104,11 @@ book2 = Booking.create(
   product_id: prod2.id,
   user_id: user2.id
 )
+
+book3 = Booking.create(
+  status: "rechazado",
+  start_date: Date.today,
+  finish_date: Date.tomorrow,
+  product_id: prod2.id,
+  user_id: user2.id
+)

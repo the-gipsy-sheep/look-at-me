@@ -6,16 +6,15 @@
         <div class="card-product-infos">
           <h5 class="text-uppercase"><%= @product.title %></h5>
           <p class="text-capitalize"><%= @product.description %></p>
-          <p>$<%= @product.price %> x día</p>
+          <p>$<%= '%.0f' % @product.price %> x día</p>
           <p> Producto de <%= @product.user.username %></p>
-
         </div>
       </div>
     </div>
   </div>
   <div class="row">
-    <h3>Reserva el producto elijiendo las fechas en que lo necesitas</h3>
-    <div class="offset-2 col-8">
+    <h3 class="text-uppercase mt-4">Reserva el producto elijiendo las fechas en que lo necesitas</h3>
+    <div class="offset-3 col-6">
       <%= render "booking_form" %>
     </div>
   </div>

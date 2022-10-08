@@ -3,7 +3,8 @@
     <div class="content center-column">
       <h1 class="text-uppercase">Look at Me</h1>
       <h2 class="text-light">Tu armario infinito</h2>
-      <p>Disfruta de la mejor ropa de alquiler </p>
+      <p><span data-controller="typed-js"></span></p>
+      <%= link_to "Registrate", new_user_registration_path, class: "btn btn-primary mt-5" %>
     </div>
   </div>
 </div>
@@ -30,7 +31,7 @@
     </div>
   </div>
 </div>
-<h2 class="text-uppercase my-5">Encuentrá tu prenda ideal</h2>
+<h4 class="my-4">Ultimas incorporaciones a nuestro placard</h4>
 
 <div class="container">
   <%= render "shared/product_card" %>
