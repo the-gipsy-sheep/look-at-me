@@ -30,8 +30,16 @@
             <h3 class="title">
               <%= link_to "#{product.title}", product_path(product)%>
             </h3>
-            <p class="text-uppercase"><%= product.category.description + " - " + product.gender %></p>
             <p class="text-capitalize"><%= product.description %></p>
+            <p class="text-capitalize"><%= product.category.description + " - " + product.gender %></p>
+
+            <ul class="list-group list-group-flush mb-3">
+              <li class="list-group-item"><i class="fa-solid fa-star-of-life"></i>   Marca: <%= product.brand %></li>
+              <li class="list-group-item"><i class="fa-solid fa-star-of-life"></i>   Color: <%= product.color %></li>
+              <li class="list-group-item"><i class="fa-solid fa-star-of-life"></i>   Talle: <%= product.size %></li>
+              <li class="list-group-item"><i class="fa-regular fa-person-half-dress"></i>   Genero: <%= product.gender %></li>
+              <li class="list-group-item"><i class="fa-solid fa-star-of-life"></i>   Usuario: <%= product.user.username %></li>
+            </ul>
             <div>
               <%= link_to "Reservalo", new_product_booking_path(product), class:"btn btn-primary text-uppercase" %>
               <div class="price">$ <%= number_with_precision(product.price, :precision => 0, :delimiter => ',') %></div>
