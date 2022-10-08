@@ -1,29 +1,32 @@
 <div class="container" data-controller="bookings">
   <div class="row">
-    <h2>Reservas de mis productos</h2>
+    <h2 class="text-uppercase">Reservas Recibidas</h2>
       <% @bookings.where.not(user: current_user).each do |booking| %>
         <div class="offset-2 col-8 col-sm-8 col-lg-8">
           <div class="card-product m-3">
             <%= image_tag booking.product.images_url, height: 300, width: 400, crop: :fill %>
             <div class="card-product-infos">
-              <h4>Reserva hecha por <%= booking.user.username %></h5>
-              <h5 class="text-uppercase"><%= booking.product.title %></h5>
+              <div class="d-flex w-100">
+                <h5 class="text-uppercase"><%= booking.product.title %></h5>
+              </div>
+              <p>Reservado por <%= booking.user.username %></h5>
               <p class="text-capitalize"><%= booking.product.description %></p>
-              <p>$<%= booking.product.price %> x día</p>
+              <p>$<%= '%.0f' % booking.product.price %> x día</p>
               <div>
                 <p>Desde: <%= booking.start_date %> Hasta: <%= booking.finish_date %></p>
-                <p>Cantidad de Días: <%= booking.finish_date - booking.start_date %></p>
-                <p class="card-price">Monto Total: $<%= (booking.finish_date - booking.start_date).to_i *  booking.product.price %></p>
+                <p>Cantidad de Días: <%= (booking.finish_date - booking.start_date).to_i %></p>
+                <p class="card-price">$<%= number_with_precision(((booking.finish_date - booking.start_date).to_i *  booking.product.price), :precision => 0, :delimiter => ',') %></p>
                 <% unless booking.status == "pendiente"  %>
-                  <p>Estado de la Reserva: <%= booking.status %></p>
+                  <div class="status-option">
+                    <p><span class="text-uppercase"><%= booking.status %></span></p>
+                  </div>
                 <% else %>
-                  <p>Confirma o Rechaza reserva del usuario?</p>
-                  <div class="d-flex p-1">
+                  <div class="d-flex p-1 status-option">
                     <%= button_to '<i class="fa-solid fa-check"></i>'.html_safe, product_booking_path(booking.product_id, booking, status: "aceptado"), remote: true, class:"btn btn-success m-1", method: :patch %>
                     <%= button_to '<i class="fa-solid fa-xmark"></i>'.html_safe, product_booking_path(booking.product_id, booking, status: "rechazado"), remote: true, class:"btn btn-danger m-1", method: :patch %>
                   </div>
                 <% end %>
-                <%= link_to '<i class="fa fa-trash"></i>'.html_safe, product_booking_path(booking.product_id, booking), class:"btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Seguro?"} %>
+                <%= link_to '<i class="fa fa-trash"></i>'.html_safe, product_booking_path(booking.product_id, booking), class:"btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Seguro?"} if booking.user == current_user %>
               </div>
             </div>
           </div>
@@ -31,21 +34,20 @@
       <% end %>
   </div>
   <div class="row">
-    <h2>Reservas realizadas por mi</h2>
+    <h2 class="text-uppercase">Mis Reservas</h2>
       <% @bookings.where(user: current_user).each do |booking| %>
         <div class="offset-2 col-8 col-sm-8 col-lg-8">
           <div class="card-product m-3">
             <%= image_tag booking.product.images_url, height: 300, width: 400, crop: :fill %>
             <div class="card-product-infos">
-              <h4>Reserva hecha por <%= booking.user.username %></h5>
+              <p class="status-option"><span class="text-uppercase"><%= booking.status %></span></p>
               <h5 class="text-uppercase"><%= booking.product.title %></h5>
               <p class="text-capitalize"><%= booking.product.description %></p>
-              <p>$<%= booking.product.price %> x día</p>
+              <p>$<%= '%.0f' %  booking.product.price %> x día</p>
               <div>
                 <p>Desde: <%= booking.start_date %> Hasta: <%= booking.finish_date %></p>
-                <p>Cantidad de Días: <%= booking.finish_date - booking.start_date %></p>
-                <p class="card-price">Monto Total: $<%= (booking.finish_date - booking.start_date).to_i *  booking.product.price %></p>
-                <p>Estado de la Reserva: <%= booking.status %></p>
+                <p>Cantidad de Días: <%= (booking.finish_date - booking.start_date).to_i %></p>
+                <p class="card-price">$<%= number_with_precision(((booking.finish_date - booking.start_date).to_i *  booking.product.price), :precision => 0, :delimiter => ',') %></p>
                 <%= link_to '<i class="fa fa-trash"></i>'.html_safe, product_booking_path(booking.product_id, booking), class:"btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Seguro?"} %>
               </div>
             </div>
